@@ -1,0 +1,28 @@
+<div class="currency-converter">
+  <h2>Currency Converter</h2>
+  
+  <label for="fromCurrency">From Currency:</label>
+  <input [(ngModel)]="fromCurrency" id="fromCurrency" list="currencies" />
+
+  <datalist id="currencies">
+    <option value="USD"></option>
+    <option value="EUR"></option>
+    <option value="GBP"></option>
+    <option value="INR"></option>
+    
+  </datalist>
+
+  <label for="toCurrency">To Currency:</label>
+  <input [(ngModel)]="toCurrency" id="toCurrency" list="currencies" />
+  
+  <label for="amount">Amount:</label>
+  <input type="number" [(ngModel)]="amount" id="amount" />
+
+  <button (click)="getExchangeRate()">Convert</button>
+
+  <div *ngIf="exchangeRate > 0">
+    <h3>Conversion Result:</h3>
+    <p>{{ amount }} {{ fromCurrency }} = {{ convertedAmount }} {{ toCurrency }}</p>
+    <p>Exchange Rate: {{ exchangeRate }}</p>
+  </div>
+</div>
